@@ -1,6 +1,6 @@
 export default function TodoListPage() {
   return (
-    <div>
+    <div className="flex p-5">
       <h1 className="text-2xl font-bold">TodoList</h1>
     </div>
   );
