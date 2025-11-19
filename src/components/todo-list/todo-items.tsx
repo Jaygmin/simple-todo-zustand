@@ -1,3 +1,4 @@
+import { useDeleteTodo } from "@/store/todos";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,6 +18,11 @@ export default function TodoItem({
   id: number;
   content: string;
 }) {
+  const deleteTodo = useDeleteTodo();
+
+  const handleDeleteClick = () => {
+    deleteTodo(id);
+  };
   return (
     <div className="flex items-center justify-between gap-4 rounded-md border p-2">
       {content}
@@ -30,7 +36,9 @@ export default function TodoItem({
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Delete</AlertDialogAction>
+            <AlertDialogAction onClick={handleDeleteClick}>
+              Delete
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
